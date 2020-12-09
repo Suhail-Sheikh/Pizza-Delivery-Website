@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel=stylesheet href="/css/app.css">
+</head>
+
+<body>
+    <nav class="container mx-auto flex items-center justify-between py-4">
+        <div>
+            <a href="/"><img src="/img/logo.png" alt=""></a>
+        </div>
+    </nav>
+        <section class="flex justify-center pt-24">
+        <div class="w-full max-w-xs">
+            <div id="root"></div>
+        </div>
+    </section>
+    
+    <script type="text/babel">
+
+        class MyForm extends React.Component {
+            render() {
+                return (
+                    <form action="/feedback" method="POST" id="feedback" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" >
+                        <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            Name
+                        </label>
+                        <input name="name" 
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="username" type="text" placeholder="Enter your name"/>
+                        </div>
+                        <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                            Email
+                        </label>
+                        <input name="email" 
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="email" type="email" placeholder="Enter your email"/>
+                        </div> 
+                        <input type="radio" id="outstanding" name="rating" value="outstanding"/>
+                        <label class="p-1 text-gray-700 text-sm font-bold mb-4" for="outstanding">Outstanding</label><br/>
+                        <input type="radio" id="great" name="rating" value="great"/>
+                        <label class="p-1 text-gray-700 text-sm font-bold mb-4" for="great">Great</label><br/> 
+                        <input type="radio" id="good" name="rating" value="good"/>
+                        <label class="p-1 text-gray-700 text-sm font-bold mb-4" for="good">Good</label><br/>
+                        <input type="radio" id="ok" name="rating" value="ok"/>
+                        <label class="p-1 text-gray-700 text-sm font-bold mb-4" for="ok">Ok</label><br/>   
+                        <input type="radio" id="poor" name="rating" value="poor"/>
+                        <label class="p-1 text-gray-700 text-sm font-bold mb-4" for="poor">Poor</label><br/>
+                        <div class="flex items-center justify-between ml-16 my-4">
+                            <button
+                                class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="submit">
+                                Submit
+                            </button> 
+                        </div>
+                    </form>
+                );
+            }
+        }
+        ReactDOM.render(<MyForm />, document.getElementById('root'));
+
+    </script>
+</body>
+
+</html>
